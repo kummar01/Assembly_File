@@ -1,3 +1,4 @@
+cat > File.s <<EOF
 section	.text
    global _start         
 	
@@ -71,3 +72,7 @@ section .bss
 fd_out resb 1
 fd_in  resb 1
 info resb  26
+EOF
+as File.s -o File.o
+ld File.o -o File
+./File
